@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="113" height="108" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="14">
- <tileset firstgid="1" source="../../../../../../Tiled/Tilesets/mainlevbuild.tsx"/>
+ <tileset firstgid="1" source="../tilesets/mainlevbuild.tsx"/>
  <layer id="3" name="Floor" width="113" height="108">
   <data encoding="csv">
 1007,1007,879,882,882,883,883,883,879,879,879,879,879,879,879,879,879,879,879,879,879,879,879,879,879,879,879,943,879,880,0,0,0,0,0,944,944,880,880,944,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
