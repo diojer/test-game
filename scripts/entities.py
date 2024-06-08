@@ -98,7 +98,7 @@ class Player(KinematicBody):
                 self.set_action("running")
         self.animation.update()
         self.hitbox = self.rect().scale_by(0.2, 0.35)
-        self.hitbox.center = (self.hitbox.centerx - 6 + (self.flip * 12), self.hitbox.centery + 22)
+        self.hitbox.center = (self.hitbox.centerx, self.hitbox.centery + 22)
         pygame.draw.rect(self.game.display, (255,0,0), pygame.Rect(Vector2(self.hitbox.topleft, self.hitbox.topright) - offset, (self.hitbox.w, self.hitbox.h)))
 
         self.game.display.blit(pygame.transform.flip(self.animation.img(), self.flip, False), self.pos - offset)
