@@ -13,6 +13,7 @@ class Game:
         self.display = pygame.Surface((self.screen_size[0]//2, self.screen_size[1]//2))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Dungeon Souls")
+        
         #-------------
 
         self.assets: dict[str, dict[str, pygame.Surface | Animation | list[pygame.Surface]]] = {
@@ -65,7 +66,6 @@ class Game:
             for thing in self.foreground:
                 thing.update()
                 thing.render(self.camera.pos)
-            
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

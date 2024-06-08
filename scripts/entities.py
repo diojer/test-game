@@ -78,7 +78,7 @@ class Player(KinematicBody):
                 
 
     def get_rect(self):
-        return pygame.Rect(self.pos, self.image.get_size())
+        return pygame.Rect(self.pos, self.animation.img().get_size())
     
     def render(self, offset: Vector2 = Vector2(0, 0)):
         if "attack" in self.action:
