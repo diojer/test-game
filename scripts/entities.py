@@ -11,6 +11,7 @@ class KinematicBody:
     vel: Vector2 = field(default_factory=lambda: Vector2(2, 2))
     flip: bool = field(init=False, default=False)
     movement: dict = field(init=False, default_factory=lambda: dict(left = False, right = False, up = False, down = False))
+    hitbox: pygame.Rect = field(init=False, default_factory=lambda: pygame.Rect((0, 0), (0, 0)))
 
     def update(self):
         self.pos.x += self.dir().x * self.vel.x
@@ -46,6 +47,8 @@ class Player(KinematicBody):
         self.set_action("idle")
         self.size = self.animation.img().get_size()
         self.og_vel = self.vel.copy()
+        
+        
         
     def set_action(self, action):
         if not action == self.action and (not self.action in self.UNINTERRUPTABLE or self.animation.done):
@@ -94,7 +97,12 @@ class Player(KinematicBody):
             if self.action == "idle" or self.action == "crouch_walking":
                 self.set_action("running")
         self.animation.update()
+        self.hitbox = self.rect().scale_by(0.2, 0.35)
+        self.hitbox.center = (self.hitbox.centerx - 6 + (self.flip * 12), self.hitbox.centery + 22)
+        pygame.draw.rect(self.game.display, (255,0,0), pygame.Rect(Vector2(self.hitbox.topleft, self.hitbox.topright) - offset, (self.hitbox.w, self.hitbox.h)))
+
         self.game.display.blit(pygame.transform.flip(self.animation.img(), self.flip, False), self.pos - offset)
+        
         
 @dataclass
 class NPC(KinematicBody):
